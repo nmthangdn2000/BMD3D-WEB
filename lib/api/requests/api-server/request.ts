@@ -4,7 +4,7 @@ import {
   baseRequestFailInterceptor,
   baseResponseInterceptor,
   baseResponseFailInterceptor,
-} from '@api/http-request/base';
+} from '@lib/api/base';
 import axios from 'axios';
 import { API_NAME, BASE_URL } from './constants';
 

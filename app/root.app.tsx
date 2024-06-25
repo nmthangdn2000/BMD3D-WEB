@@ -7,12 +7,13 @@ import { Provider } from 'react-redux';
 
 import { store } from '@lib/store';
 import { queryClient } from '@lib/api/app-query-client';
+import { Providers } from '@app/providers';
 
 export const AppRoot = ({ children }: { children: ReactNode }) => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        {children}
+        <Providers>{children}</Providers>
 
         {/* React Query Devtools */}
         <ReactQueryDevtools />

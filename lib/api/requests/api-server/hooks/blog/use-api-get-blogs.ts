@@ -1,4 +1,3 @@
-import { baseUseQueryOptions } from '@api/http-request/base';
 import { QueryObserverOptions, useQuery } from '@tanstack/react-query';
 import { API_NAME } from '../..';
 import {
@@ -6,6 +5,7 @@ import {
   ApiGetBlogsResponse,
   getBlogs,
 } from '../../endpoints/blog';
+import { baseUseQueryOptions } from '@lib/api/base';
 
 export const useApiGetBlogs = (
   params: ApiGetBlogsRequest,
