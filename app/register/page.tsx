@@ -13,7 +13,7 @@ import GoogleSvg from './assets/icons/google.svg';
 import MetaSvg from './assets/icons/meta.svg';
 import AppleSvg from './assets/icons/apple.svg';
 
-const Login = () => {
+const Register = () => {
   const router = useRouter();
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -122,16 +122,16 @@ const Login = () => {
               router.push('/');
             }}
           >
-            LOG IN
+            CREATE ACCOUNT
           </Button>
           <div className="flex justify-center">
             <span className="text-[14px] font-medium text-[#434446]">
-              Doesn{'’'}t have an Account?{' '}
+              Already has an Account?{' '}
               <Link
                 href={'/register'}
                 className="text-[#79C420] cursor-pointer"
               >
-                Register
+                Sign in
               </Link>
             </span>
           </div>
@@ -155,4 +155,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
