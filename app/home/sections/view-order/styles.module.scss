@@ -1,0 +1,36 @@
+.work-status {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  .line {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #8a8a8a;
+  }
+
+  .status {
+    flex-grow: 1;
+    flex-basis: 33.3333333%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .finish-line {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      height: 2px;
+      width: 50%;
+      background-color: #79c420;
+
+      &.full {
+        width: 100%;
+      }
+    }
+  }
+}
