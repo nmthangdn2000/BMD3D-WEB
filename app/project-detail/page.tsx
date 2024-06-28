@@ -15,7 +15,7 @@ import React from 'react';
 import PlusSvg from './assets/icons/plus.svg';
 import { useRouter } from 'next/navigation';
 
-export const ProjectDetail = () => {
+const ProjectDetail = () => {
   const router = useRouter();
   return (
     <div className="container h-screen relative py-8 px-4 mx-auto">
