@@ -11,10 +11,11 @@ import {
   Textarea,
 } from '@nextui-org/react';
 import React from 'react';
+import PlusSvg from './assets/icons/plus.svg';
 
-export const AddOrder = () => {
+export const ProjectDetail = () => {
   return (
-    <div className="container w-full h-screen relative py-16 px-4">
+    <div className="container h-screen relative py-16 px-4 mx-auto">
       <div className="flex gap-8">
         <div className="basis-4/12 overflow-auto h-[calc(100vh-8rem)] px-2">
           <div className="flex flex-col items-center">
@@ -114,14 +115,54 @@ export const AddOrder = () => {
             <Button className="bg-[#79C420] text-white flex-1">NEXT</Button>
           </div>
         </div>
+
         <div className="basis-8/12 rounded overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7630.695422698364!2d106.67709064609964!3d10.837220366470852!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175291cdeda3275%3A0xff2688431a9c883d!2zU8OibiBiw7NuZyBraGFuZyBhbg!5e0!3m2!1svi!2s!4v1719419929856!5m2!1svi!2s"
-            width="600"
-            height="450"
-            loading="lazy"
-            className="w-full h-[calc(100vh-8rem)] border-none"
-          ></iframe>
+          <div className="flex flex-col">
+            <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
+            <div className="flex flex-wrap -mr-5">
+              {[...Array(7)].map((_, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5"
+                >
+                  <div className="pt-1 w-full">
+                    <Image
+                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
+                      fallbackSrc="https://via.placeholder.com/300x200"
+                      alt="NextUI Image with fallback"
+                    />
+                  </div>
+                  <span className="text-sm font-bold uppercase text-ellipsis mb-2">
+                    Final-Rendering.jpeg
+                  </span>
+                </div>
+              ))}
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5">
+                <div className="pt-1">
+                  <div className="h-[152px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
+                    <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
+                      <PlusSvg />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Spacer y={4} />
+          <div className="flex flex-col">
+            <h1 className="text-sm font-bold px-3 py-4">LOCATION</h1>
+            <div className="ml-1 mr-1 p-2 shadow-small rounded-2xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7630.695422698364!2d106.67709064609964!3d10.837220366470852!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175291cdeda3275%3A0xff2688431a9c883d!2zU8OibiBiw7NuZyBraGFuZyBhbg!5e0!3m2!1svi!2s!4v1719419929856!5m2!1svi!2s"
+                width="600"
+                height="262"
+                loading="lazy"
+                className="w-full h-[262px] border-none rounded-2xl"
+              ></iframe>
+            </div>
+          </div>
+          <Spacer y={4} />
         </div>
       </div>
     </div>

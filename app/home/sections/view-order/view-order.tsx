@@ -18,7 +18,7 @@ import styles from './styles.module.scss';
 
 export const ViewOrder = () => {
   return (
-    <div className="container w-full h-screen relative py-16 px-4">
+    <div className="container h-screen relative py-16 px-4 mx-auto">
       <div className="flex gap-8">
         <div className="basis-4/12 overflow-auto h-[calc(100vh-8rem)] px-2">
           <div className="flex flex-col items-center">
@@ -138,7 +138,7 @@ export const ViewOrder = () => {
                   key={index}
                   className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4"
                 >
-                  <div className="pl-1 pt-1 w-full">
+                  <div className="pt-1 w-full px-[10px] first:pl-1 last:pr-1">
                     <Image
                       className="w-full h-[152px] object-cover p-2 shadow-small"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
