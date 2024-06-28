@@ -1,24 +1,14 @@
-import { DropFile } from '@lib/components/drop-file';
-import { LogoVerticalImg } from '@lib/global/images';
-import {
-  Button,
-  Chip,
-  DatePicker,
-  Divider,
-  Image,
-  Input,
-  Spacer,
-  Textarea,
-} from '@nextui-org/react';
-import React from 'react';
+import { Button, Image } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+import FilePlusSvg from './assets/icons/file-plus.svg';
+import ExistingOrderPng from './assets/images/existing-order.png';
 import Img1Png from './assets/images/img1.png';
 import Img2Png from './assets/images/img2.png';
 import Img3Png from './assets/images/img3.png';
 import Img4Png from './assets/images/img4.png';
-import ExistingOrderPng from './assets/images/existing-order.png';
-import FilePlusSvg from './assets/icons/file-plus.svg';
 
 export const Main = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col">
       <div className="shadow-lg bg-white">
@@ -58,7 +48,12 @@ export const Main = () => {
             <Button className="bg-[#F2F2F2] font-bold rounded-lg w-[154px]">
               LEARN MORE
             </Button>
-            <Button className="bg-[#79C420] text-white font-bold rounded-lg w-[154px]">
+            <Button
+              className="bg-[#79C420] text-white font-bold rounded-lg w-[154px]"
+              onClick={() => {
+                router.push('/project-detail');
+              }}
+            >
               ORDER NOW
             </Button>
           </div>

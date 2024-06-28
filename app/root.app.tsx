@@ -14,10 +14,7 @@ export const AppRoot = ({ children }: { children: ReactNode }) => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <Providers>
-          <Header />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
 
         {/* React Query Devtools */}
         <ReactQueryDevtools />
