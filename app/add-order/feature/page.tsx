@@ -40,7 +40,7 @@ const setupDefault: ItemFeatureData = {
 
 const AddOrderFeature = () => {
   const router = useRouter();
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
 
   const [views, setViews] = React.useState<ItemFeatureData[]>([viewDefault]);
   const [setups, setSetups] = React.useState<ItemFeatureData[]>([viewDefault]);

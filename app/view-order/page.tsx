@@ -20,7 +20,7 @@ import { useAuthentication } from '@lib/hooks/use-authentication';
 
 const ViewOrder = () => {
   const router = useRouter();
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
 
   return (
     user && (

@@ -10,6 +10,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(setUser(null));
+    window.location.href = '/login';
   };
 
   const navLinks = [

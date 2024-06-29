@@ -35,7 +35,7 @@ const sizes = ['Extra Small', 'Small', 'Medium', 'Large'];
 
 export const AddOrderSetupTypeClient = () => {
   const router = useRouter();
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
 
   const [budget, setBudget] = useState<string>('Quick Start');
   const [size, setSize] = useState<string>('Extra Small');

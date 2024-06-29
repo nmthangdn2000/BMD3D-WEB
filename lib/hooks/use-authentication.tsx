@@ -1,33 +1,29 @@
 import { setUser } from '@lib/services/global-states';
 import { useAppDispatch, useAppSelector } from '@lib/store';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const LOGIN_PATH = '/login';
+const REGISTER_PATH = '/register';
 
 export const useAuthentication = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.globalStates);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (pathname === LOGIN_PATH) return;
-    if (!user) window.location.href = LOGIN_PATH;
-  }, [pathname, user]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (pathname === LOGIN_PATH) return;
-
     const cookie = document.cookie;
     const accessToken = cookie.split('accessToken=')[1];
 
-    if (accessToken && accessToken === 'TRUE_TOKEN_ey12312312313') {
+    if (accessToken === 'TRUE_TOKEN_ey12312312313') {
       dispatch(setUser({ name: 'NM Thang', accessToken }));
-      return;
-    }
+    } else if (![LOGIN_PATH, REGISTER_PATH].includes(pathname))
+      window.location.href = LOGIN_PATH;
 
-    window.location.href = LOGIN_PATH;
-  }, [dispatch, pathname]);
+    setIsLoading(false);
+  }, [dispatch, pathname, setIsLoading]);
 
-  return user;
+  return { isLoading, user };
 };

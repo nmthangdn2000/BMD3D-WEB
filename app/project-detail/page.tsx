@@ -21,7 +21,7 @@ const ProjectDetail = () => {
   const [files, setFiles] = React.useState<File[]>([]);
 
   const router = useRouter();
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
 
   const handleChangeInputFile = (files: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...files]);
@@ -167,7 +167,16 @@ const ProjectDetail = () => {
               <div className="flex gap-6 flex-wrap p-3 justify-start">
                 {files.length > 0 ? (
                   files.map((file, index) => (
-                    <ItemFile key={index} filename={file.name} />
+                    <ItemFile
+                      key={index}
+                      index={index}
+                      filename={file.name}
+                      onRemove={(index) => {
+                        setFiles((prevFiles) =>
+                          prevFiles.filter((_, i) => i !== index),
+                        );
+                      }}
+                    />
                   ))
                 ) : (
                   <span>

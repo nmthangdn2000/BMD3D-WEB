@@ -19,12 +19,13 @@ import { setUser } from '@lib/services/global-states';
 const Login = () => {
   const router = useRouter();
 
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    if (isLoadingAuth) return;
     if (user) router.replace('/');
-  }, [user, router]);
+  }, [user, router, isLoadingAuth]);
 
   const [showPassword, setShowPassword] = React.useState(false);
 

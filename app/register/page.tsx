@@ -17,10 +17,11 @@ import { useAuthentication } from '@lib/hooks/use-authentication';
 const Register = () => {
   const router = useRouter();
 
-  const user = useAuthentication();
+  const { isLoading: isLoadingAuth, user } = useAuthentication();
   useEffect(() => {
+    if (isLoadingAuth) return;
     if (user) router.replace('/');
-  }, [user, router]);
+  }, [user, router, isLoadingAuth]);
 
   const [showPassword, setShowPassword] = React.useState(false);
 
