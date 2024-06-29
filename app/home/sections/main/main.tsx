@@ -4,9 +4,10 @@ import FilePlusSvg from './assets/icons/file-plus.svg';
 import ExistingOrderPng from './assets/images/existing-order.png';
 import ImgMainJPG from './assets/images/img-main.jpg';
 import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 import styles from './styles.module.scss';
-import { useRef, useState } from 'react';
+import CloseSvg from './assets/icons/close.svg';
 
 export const Main = () => {
   const router = useRouter();
@@ -80,7 +81,12 @@ export const Main = () => {
           }}
         >
           <div className="container h-[28vh] relative flex flex-col justify-center gap-4 py-4 px-4 mx-auto">
-            <h1 className="text-[#434446] font-bold">EXISTING ORDER</h1>
+            <div className="flex justify-between items-center">
+              <h1 className="text-[#434446] font-bold">EXISTING ORDER</h1>
+              <button onClick={handleExistingOrder}>
+                <CloseSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
+              </button>
+            </div>
             <div className="flex">
               {[...Array(4)].map((_, index) => (
                 <div
