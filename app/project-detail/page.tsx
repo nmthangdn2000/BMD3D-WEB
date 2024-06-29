@@ -18,13 +18,23 @@ import { ItemFile } from '@app/project-detail/components/item-file';
 import { useAuthentication } from '@lib/hooks/use-authentication';
 
 const ProjectDetail = () => {
-  const [files, setFiles] = React.useState<File[]>([]);
+  const [files, setFiles] = React.useState<File[]>(
+    JSON.parse(localStorage.getItem('files') || '[]'),
+  );
 
   const router = useRouter();
   const { isLoading: isLoadingAuth, user } = useAuthentication();
 
   const handleChangeInputFile = (files: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...files]);
+
+    // save local storage
+    const fileNames = files.map((_) => _.name);
+    const storageFiles = JSON.parse(localStorage.getItem('files') || '[]');
+    localStorage.setItem(
+      'files',
+      JSON.stringify([...storageFiles, ...fileNames]),
+    );
   };
 
   return (
