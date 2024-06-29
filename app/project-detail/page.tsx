@@ -14,13 +14,21 @@ import {
 import React from 'react';
 import PlusSvg from './assets/icons/plus.svg';
 import { useRouter } from 'next/navigation';
+import { ItemFile } from '@app/project-detail/components/item-file';
 
 const ProjectDetail = () => {
+  const [files, setFiles] = React.useState<File[]>([]);
+
   const router = useRouter();
+
+  const handleChangeInputFile = (files: File[]) => {
+    setFiles((prevFiles) => [...prevFiles, ...files]);
+  };
+
   return (
     <div className="container h-screen relative py-8 px-4 mx-auto">
       <div className="flex gap-8 h-full">
-        <div className="basis-3/12 overflow-auto h-full px-2 flex flex-col justify-between">
+        <form className="basis-3/12 overflow-auto h-full px-2 flex flex-col justify-between">
           <div>
             <div className="flex flex-col items-center">
               <Image
@@ -110,7 +118,10 @@ const ProjectDetail = () => {
                 </span>
               </span>
               <Spacer y={1} />
-              <DropFile />
+              <DropFile
+                accept="application/pdf"
+                onChange={handleChangeInputFile}
+              />
             </div>
             <Spacer y={4} />
             <Input
@@ -145,29 +156,22 @@ const ProjectDetail = () => {
               NEXT
             </Button>
           </div>
-        </div>
+        </form>
 
-        <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between">
-          <div className="flex flex-col overflow-auto">
-            <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
-            <div className="grid gap-6 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 p-3">
-              {[...Array(7)].map((_, index) => (
-                <div key={index} className="flex flex-col gap-2 items-stretch">
-                  <div className="pt-1 w-full">
-                    <Image
-                      removeWrapper
-                      className="w-full object-cover p-2 shadow-small h-[160px]"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
-                      fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
-                    />
-                  </div>
-                  <span className="text-sm font-bold uppercase text-ellipsis mb-2">
-                    Final-Rendering.jpeg
-                  </span>
-                </div>
-              ))}
-              <div className="flex flex-col gap-2 items-stretch w-full">
+        <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between h-full">
+          <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
+          <div className="flex-grow flex flex-col overflow-auto">
+            <div className="flex gap-6 flex-wrap p-3 justify-start">
+              {files.length > 0 ? (
+                files.map((file, index) => (
+                  <ItemFile key={index} filename={file.name} />
+                ))
+              ) : (
+                <span>
+                  No files uploaded yet. Please upload your files here.
+                </span>
+              )}
+              {/* <div className="flex flex-col gap-2 items-stretch w-full">
                 <div className="pt-1 w-full">
                   <div className="w-full h-[160px] flex flex-col p-2 rounded-large cursor-pointer border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
@@ -175,7 +179,7 @@ const ProjectDetail = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

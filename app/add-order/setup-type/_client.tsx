@@ -6,6 +6,7 @@ import { LogoVerticalImg } from '@lib/global/images';
 
 import './style.css';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
 const Masonry = dynamic(
   () => import('react-responsive-masonry').then((module) => module.default),
@@ -28,8 +29,14 @@ const images = Array.from(
   { length: 10 },
   (_, i) => require(`./assets/images/${i + 1}.jpg`).default,
 );
+const budgets = ['Quick Start', 'Essentials', 'All Details', 'Packages'];
+const sizes = ['Extra Small', 'Small', 'Medium', 'Large'];
+
 export const AddOrderSetupTypeClient = () => {
   const router = useRouter();
+
+  const [budget, setBudget] = useState<string>('Quick Start');
+  const [size, setSize] = useState<string>('Extra Small');
 
   return (
     <div className="container h-screen relative py-8 px-4 mx-auto">
@@ -58,38 +65,24 @@ export const AddOrderSetupTypeClient = () => {
                     Budget
                   </h1>
                   <Spacer y={2} />
-                  <div className="flex gap-3">
-                    <Button
-                      variant="bordered"
-                      size="sm"
-                      className="border-1 border-[#79C420] rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Quick Start
-                    </Button>
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Essentials
-                    </Button>
-                  </div>
-                  <Spacer y={2} />
-                  <div className="flex gap-3">
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      All Details
-                    </Button>
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Packages
-                    </Button>
+                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
+                    {budgets.map((item, index) => (
+                      <Button
+                        key={index}
+                        variant={budget === item ? 'bordered' : 'flat'}
+                        size="sm"
+                        className={`border-1 ${
+                          budget === item
+                            ? 'border-[#79C420]'
+                            : 'border-gray-300'
+                        } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
+                        onClick={() => {
+                          setBudget(item);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
                   </div>
                 </div>
 
@@ -99,38 +92,23 @@ export const AddOrderSetupTypeClient = () => {
                     Size
                   </h1>
                   <Spacer y={2} />
-                  <div className="flex gap-3">
-                    <Button
-                      variant="bordered"
-                      size="sm"
-                      className="border-1 border-[#79C420] rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Extra Small
-                    </Button>
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Small
-                    </Button>
-                  </div>
-                  <Spacer y={2} />
-                  <div className="flex gap-3">
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Medium
-                    </Button>
-                    <Button
-                      variant="flat"
-                      size="sm"
-                      className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                    >
-                      Large
-                    </Button>
+
+                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
+                    {sizes.map((item, index) => (
+                      <Button
+                        key={index}
+                        variant={size === item ? 'bordered' : 'flat'}
+                        size="sm"
+                        className={`border-1 ${
+                          size === item ? 'border-[#79C420]' : 'border-gray-300'
+                        } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
+                        onClick={() => {
+                          setSize(item);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -157,7 +135,7 @@ export const AddOrderSetupTypeClient = () => {
           </div>
         </div>
 
-        <div className="basis-9/12 overflow-auto">
+        <div className="basis-9/12 overflow-auto pr-3">
           {/* <LightGallery
         elementClassNames={'grid-wrapper'}
         onInit={onInit}

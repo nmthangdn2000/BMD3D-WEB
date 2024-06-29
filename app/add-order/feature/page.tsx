@@ -18,10 +18,63 @@ import PlusCircleSvg from './assets/icons/plus-circle.svg';
 import PlusSvg from './assets/icons/plus.svg';
 import CloseSvg from './assets/icons/close.svg';
 import ChevronDownSvg from './assets/icons/chevron-down.svg';
-import ChevronUpSvg from './assets/icons/chevron-up.svg';
+import {
+  ItemFeature,
+  ItemFeatureData,
+} from '@app/add-order/feature/components/Item';
+
+const viewDefault: ItemFeatureData = {
+  name: 'View 1',
+  lightning: 'Dawn',
+  color: 'A',
+  resolution: '4K',
+};
+
+const setupDefault: ItemFeatureData = {
+  name: 'Setup 1',
+  lightning: 'Dawn',
+  color: 'A',
+  resolution: '4K',
+};
 
 const AddOrderFeature = () => {
   const router = useRouter();
+
+  const [views, setViews] = React.useState<ItemFeatureData[]>([viewDefault]);
+  const [setups, setSetups] = React.useState<ItemFeatureData[]>([viewDefault]);
+
+  const handleRemoveView = (index: number) => {
+    setViews((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddView = () => {
+    setViews((prev) => [
+      ...prev,
+      {
+        name: `View ${prev.length + 1}`,
+        lightning: 'Dawn',
+        color: 'A',
+        resolution: '4K',
+      },
+    ]);
+  };
+
+  const handleRemoveSetup = (index: number) => {
+    setSetups((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddSetup = () => {
+    setSetups((prev) => [
+      ...prev,
+      {
+        name: `Setup ${prev.length + 1}`,
+        lightning: 'Dawn',
+        color: 'A',
+        resolution: '4K',
+      },
+    ]);
+  };
+
   return (
     <div className="container h-screen relative py-8 px-4 mx-auto">
       <div className="flex gap-8 h-full">
@@ -48,66 +101,24 @@ const AddOrderFeature = () => {
                   <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
                     Setup
                   </h1>
-                  <button>
+                  <button
+                    onClick={() => {
+                      handleAddSetup();
+                    }}
+                  >
                     <PlusCircleSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
                   </button>
                 </div>
 
-                <div className="border-1 rounded-lg p-2">
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      Setup 1
-                    </h2>
-                    <button>
-                      <CloseSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
-                    </button>
-                  </div>
-                  <Input
-                    variant="bordered"
-                    size="sm"
-                    type="text"
-                    placeholder="Placeholder"
-                    classNames={{
-                      input: ['text-xs placeholder:text-[#AAAAAA]'],
-                      inputWrapper: [
-                        'border-[1px] group-data-[focus=true]:border-[#79C420] mt-1',
-                      ],
-                      label: ['font-medium !text-[#8A8A8A] pl-2'],
-                    }}
+                {setups.map((item, index) => (
+                  <ItemFeature
+                    key={index}
+                    id={index}
+                    name="Setup"
+                    data={item}
+                    onRemove={handleRemoveSetup}
                   />
-                  <div className="flex justify-end items-center text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer">
-                    <span className="text-xs">Custom</span>
-                    <ChevronDownSvg />
-                  </div>
-                </div>
-
-                <div className="border-1 rounded-lg p-2">
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      Setup 2
-                    </h2>
-                    <button>
-                      <CloseSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
-                    </button>
-                  </div>
-                  <Input
-                    variant="bordered"
-                    size="sm"
-                    type="text"
-                    placeholder="Placeholder"
-                    classNames={{
-                      input: ['text-xs placeholder:text-[#AAAAAA]'],
-                      inputWrapper: [
-                        'border-[1px] group-data-[focus=true]:border-[#79C420] mt-1',
-                      ],
-                      label: ['font-medium !text-[#8A8A8A] pl-2'],
-                    }}
-                  />
-                  <div className="flex justify-end items-center text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer">
-                    <span className="text-xs">Custom</span>
-                    <ChevronDownSvg />
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="flex flex-col gap-3">
@@ -115,149 +126,24 @@ const AddOrderFeature = () => {
                   <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
                     View
                   </h1>
-                  <button>
+                  <button
+                    onClick={() => {
+                      handleAddView();
+                    }}
+                  >
                     <PlusCircleSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
                   </button>
                 </div>
 
-                <div className="border-1 rounded-lg p-2">
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      View 1
-                    </h2>
-                    <button>
-                      <CloseSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
-                    </button>
-                  </div>
-                  <Input
-                    variant="bordered"
-                    size="sm"
-                    type="text"
-                    placeholder="Placeholder"
-                    classNames={{
-                      input: ['text-xs placeholder:text-[#AAAAAA]'],
-                      inputWrapper: [
-                        'border-[1px] group-data-[focus=true]:border-[#79C420] mt-1',
-                      ],
-                      label: ['font-medium !text-[#8A8A8A] pl-2'],
-                    }}
+                {views.map((item, index) => (
+                  <ItemFeature
+                    key={index}
+                    id={index}
+                    name="View"
+                    data={item}
+                    onRemove={handleRemoveView}
                   />
-                  <div className="flex flex-col gap-4 mt-3">
-                    <h1 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      Lightning
-                    </h1>
-                    <div className="flex">
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="bordered"
-                          size="sm"
-                          className="border-1 border-[#79C420] rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          Dawn
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          Day
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          Dusk
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          Custom
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-4 mt-3">
-                    <h1 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      Color
-                    </h1>
-                    <div className="flex">
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="bordered"
-                          size="sm"
-                          className="border-1 border-[#79C420] rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          A
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          B
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          C
-                        </Button>
-                      </div>
-                      <div className="w-[25%] pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          D
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-4 mt-3">
-                    <h1 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-                      Resolution
-                    </h1>
-                    <div className="flex">
-                      <div className="w-[50%] basis-1/2 pr-2 last:pr-0">
-                        <Button
-                          variant="bordered"
-                          size="sm"
-                          className="border-1 border-[#79C420] rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          4K
-                        </Button>
-                      </div>
-                      <div className="w-[50%] basis-1/2 pr-2 last:pr-0">
-                        <Button
-                          variant="flat"
-                          size="sm"
-                          className="border-1 bg-[#F2F2F2] border-none rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full"
-                        >
-                          8K
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-center items-center text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer">
-                    <ChevronUpSvg />
-                    <span className="text-xs">Collapse</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

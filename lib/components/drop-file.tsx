@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-export const DropFile = () => {
-  const [file, setFile] = useState<File>();
+type DropFileProps = {
+  accept?: string;
+  onChange?: (files: File[]) => void;
+};
+
+export const DropFile = ({ accept, onChange }: DropFileProps) => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const [files, setFiles] = useState<File[]>([]);
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const droppedFile = e.dataTransfer.files[0];
-    if (droppedFile) {
-      setFile(droppedFile);
-    }
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    setFiles((prevFiles) => [...prevFiles, ...droppedFiles]);
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -17,19 +22,18 @@ export const DropFile = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-
-    const selectedFile = e.target.files[0];
-
-    if (selectedFile) {
-      setFile(selectedFile);
-    }
+    const selectedFiles = Array.from(e.target.files);
+    setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
   };
 
   useEffect(() => {
-    if (file) {
-      console.log(file);
+    if (files.length > 0) {
+      onChange?.(files);
+
+      inputRef.current!.value = '';
+      setFiles([]);
     }
-  }, [file]);
+  }, [files]);
 
   return (
     <div
@@ -66,10 +70,13 @@ export const DropFile = () => {
             </p>
           </div>
           <input
+            ref={inputRef}
             id="dropzone-file"
             type="file"
             className="hidden"
             onChange={handleFileChange}
+            accept={accept}
+            multiple
           />
         </div>
       </label>
