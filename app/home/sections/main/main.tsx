@@ -80,18 +80,18 @@ export const Main = () => {
             opacity: showExistingOrder ? 1 : 0,
           }}
         >
-          <div className="container h-[28vh] relative flex flex-col justify-center gap-4 py-4 px-4 mx-auto">
+          <div className="container h-[24vh] relative flex flex-col gap-2 pt-4 pb-8 px-4 mx-auto">
             <div className="flex justify-between items-center">
-              <h1 className="text-[#434446] font-bold">EXISTING ORDER</h1>
+              <span className="text-[#434446] font-bold">EXISTING ORDER</span>
               <button onClick={handleExistingOrder}>
                 <CloseSvg className="text-[#8A8A8A] hover:text-[#3A3A3A] transition-colors cursor-pointer" />
               </button>
             </div>
             <div className="flex">
-              {[...Array(4)].map((_, index) => (
+              {[...Array(5)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 basis-1/5 first:pl-1 pr-3 last:pr-1 "
+                  className="flex-shrink-0 basis-1/6 first:pl-1 pr-3 last:pr-1 "
                 >
                   <div
                     className="relative pt-1 w-full cursor-pointer"
@@ -112,7 +112,7 @@ export const Main = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/5 pr-5">
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/6 pr-5">
                 <div className="pt-1">
                   <div
                     className="h-[164px] flex flex-col cursor-pointer p-2 rounded-large border-[#8A8A8A] border-dashed border-2"
