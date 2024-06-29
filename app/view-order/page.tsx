@@ -21,7 +21,9 @@ import { ItemFile } from '@app/project-detail/components/item-file';
 
 const ViewOrder = () => {
   const [files, setFiles] = React.useState<File[]>(
-    JSON.parse(localStorage.getItem('files') || '[]'),
+    typeof window === 'undefined'
+      ? []
+      : JSON.parse(localStorage.getItem('files') || '[]'),
   );
 
   const router = useRouter();

@@ -19,7 +19,9 @@ import { useAuthentication } from '@lib/hooks/use-authentication';
 
 const ProjectDetail = () => {
   const [files, setFiles] = React.useState<File[]>(
-    JSON.parse(localStorage.getItem('files') || '[]'),
+    typeof window === 'undefined'
+      ? []
+      : JSON.parse(localStorage.getItem('files') || '[]'),
   );
 
   const router = useRouter();
