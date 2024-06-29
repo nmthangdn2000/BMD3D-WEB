@@ -28,8 +28,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="container fixed top-0 left-0 right-0 z-20 mt-4 mx-auto">
-      <div className="flex items-center justify-between bg-white shadow-lg rounded-[20px] h-16 px-4">
+    <header className="fixed top-0 left-0 right-0 z-20 bg-white">
+      <div className="container flex items-center justify-between h-16 px-4  mx-auto">
         <Image
           src={LogoImg.src}
           alt="Logo"
@@ -49,15 +49,14 @@ const Header = () => {
               </Link>
             ))}
           </div>
-
-          <Button
-            variant="flat"
-            size="sm"
-            className="text-sm font-bold text-[#434446] px-6"
-          >
-            Log Out
-          </Button>
         </div>
+        <Button
+          variant="flat"
+          size="sm"
+          className="text-sm font-bold text-[#434446] px-6"
+        >
+          Log Out
+        </Button>
       </div>
     </header>
   );

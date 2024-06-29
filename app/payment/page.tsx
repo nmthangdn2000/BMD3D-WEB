@@ -25,138 +25,147 @@ const Payment = () => {
   const router = useRouter();
   return (
     <div className="container h-screen relative py-8 px-4 mx-auto">
-      <div className="flex gap-8">
-        <div className="relative basis-4/12 overflow-auto h-[calc(100vh-8rem)] px-2 flex flex-col">
-          <div className="sticky top-0 flex flex-col items-center bg-white z-10 pb-4">
-            <Image src={LogoVerticalImg.src} alt="Banner" className="w-20" />
-            <Spacer y={4} />
-            <Chip radius="sm" className="bg-[#F2F2F2]">
-              <p className="text-xs text-[#434446] font-bold">
-                Billing Details
-              </p>
-            </Chip>
-          </div>
-
-          <div className="flex-grow flex flex-col gap-6 overflow-auto">
-            <form action="#" className="flex flex-col gap-3">
-              <Input
-                size="sm"
-                type="text"
-                variant="bordered"
-                label="Billing Company"
-                labelPlacement={'outside'}
-                placeholder="Project Name"
-                classNames={{
-                  input: ['text-xs placeholder:text-[#AAAAAA]'],
-                  inputWrapper: [
-                    'border-[1px] group-data-[focus=true]:border-[#79C420]',
-                  ],
-                  label: ['font-medium !text-[#8A8A8A] pl-2'],
+      <div className="flex gap-8 h-full">
+        <div className="relative basis-3/12 overflow-auto h-full px-2 flex flex-col justify-between">
+          <div>
+            <div className="sticky top-0 flex flex-col items-center bg-white z-10 pb-4">
+              <Image
+                src={LogoVerticalImg.src}
+                alt="Banner"
+                className="w-20 cursor-pointer"
+                onClick={() => {
+                  router.push('/');
                 }}
               />
-              <div className="flex gap-3">
-                <Input
-                  size="sm"
-                  type="text"
-                  variant="bordered"
-                  label="First Name"
-                  labelPlacement={'outside'}
-                  placeholder="First Name"
-                  classNames={{
-                    input: ['text-xs placeholder:text-[#AAAAAA]'],
-                    inputWrapper: [
-                      'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
-                    ],
-                    label: ['font-medium !text-[#8A8A8A] pl-2'],
-                  }}
-                />
-                <Input
-                  size="sm"
-                  type="text"
-                  variant="bordered"
-                  label="Last Name"
-                  labelPlacement={'outside'}
-                  placeholder="Last Name"
-                  classNames={{
-                    input: ['text-xs placeholder:text-[#AAAAAA]'],
-                    inputWrapper: [
-                      'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
-                    ],
-                    label: ['font-medium !text-[#8A8A8A] pl-2'],
-                  }}
-                />
-              </div>
-              <div className="flex gap-3">
-                <Input
-                  size="sm"
-                  type="text"
-                  variant="bordered"
-                  label="Email"
-                  labelPlacement={'outside'}
-                  placeholder="nicolek22@gmail.com"
-                  classNames={{
-                    input: ['text-xs placeholder:text-[#AAAAAA]'],
-                    inputWrapper: [
-                      'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
-                    ],
-                    label: ['font-medium !text-[#8A8A8A] pl-2'],
-                  }}
-                />
-                <Input
-                  size="sm"
-                  type="text"
-                  variant="bordered"
-                  label="Phone"
-                  labelPlacement={'outside'}
-                  placeholder="0100-04-02-76"
-                  classNames={{
-                    input: ['text-xs placeholder:text-[#AAAAAA]'],
-                    inputWrapper: [
-                      'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
-                    ],
-                    label: ['font-medium !text-[#8A8A8A] pl-2'],
-                  }}
-                />
-              </div>
-            </form>
-
-            <div className="flex flex-col gap-3">
-              <div className="flex justify-between items-center">
-                <h1 className="text-sm font-bold">Subtotal:</h1>
-                <div className="flex items-center gap-[2px] text-sm font-bold">
-                  <span>$</span>
-                  <span>100</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center">
-                <h1 className="text-sm font-bold">Discount:</h1>
-                <span className="text-sm font-bold">CODE</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <h1 className="text-sm font-bold">GST:</h1>
-                <div className="flex items-center gap-[2px] text-sm font-bold">
-                  <span>$</span>
-                  <span>5</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center">
-                <h1 className="text-sm font-bold">Total:</h1>
-                <div className="flex items-center gap-[2px] text-sm font-bold">
-                  <span>$</span>
-                  <span>105</span>
-                </div>
-              </div>
+              <Spacer y={4} />
+              <Chip radius="sm" className="bg-[#F2F2F2]">
+                <p className="text-xs text-[#434446] font-bold">
+                  Billing Details
+                </p>
+              </Chip>
             </div>
 
-            <p className="text-[10px] font-medium text-[#8A8A8A] uppercase">
-              50% Deposit is required to commence work.
-              <br />
-              E-Transfers are prefered.
-              <br />
-              Full payment is due before final files will be released.
-              <br />
-              Additonal fees may apply.
-            </p>
+            <div className="flex-grow flex flex-col gap-6 overflow-auto">
+              <form action="#" className="flex flex-col gap-3">
+                <Input
+                  size="sm"
+                  type="text"
+                  variant="bordered"
+                  label="Billing Company"
+                  labelPlacement={'outside'}
+                  placeholder="Project Name"
+                  classNames={{
+                    input: ['text-xs placeholder:text-[#AAAAAA]'],
+                    inputWrapper: [
+                      'border-[1px] group-data-[focus=true]:border-[#79C420]',
+                    ],
+                    label: ['font-medium !text-[#8A8A8A] pl-2'],
+                  }}
+                />
+                <div className="flex gap-3">
+                  <Input
+                    size="sm"
+                    type="text"
+                    variant="bordered"
+                    label="First Name"
+                    labelPlacement={'outside'}
+                    placeholder="First Name"
+                    classNames={{
+                      input: ['text-xs placeholder:text-[#AAAAAA]'],
+                      inputWrapper: [
+                        'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
+                      ],
+                      label: ['font-medium !text-[#8A8A8A] pl-2'],
+                    }}
+                  />
+                  <Input
+                    size="sm"
+                    type="text"
+                    variant="bordered"
+                    label="Last Name"
+                    labelPlacement={'outside'}
+                    placeholder="Last Name"
+                    classNames={{
+                      input: ['text-xs placeholder:text-[#AAAAAA]'],
+                      inputWrapper: [
+                        'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
+                      ],
+                      label: ['font-medium !text-[#8A8A8A] pl-2'],
+                    }}
+                  />
+                </div>
+                <div className="flex gap-3">
+                  <Input
+                    size="sm"
+                    type="text"
+                    variant="bordered"
+                    label="Email"
+                    labelPlacement={'outside'}
+                    placeholder="nicolek22@gmail.com"
+                    classNames={{
+                      input: ['text-xs placeholder:text-[#AAAAAA]'],
+                      inputWrapper: [
+                        'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
+                      ],
+                      label: ['font-medium !text-[#8A8A8A] pl-2'],
+                    }}
+                  />
+                  <Input
+                    size="sm"
+                    type="text"
+                    variant="bordered"
+                    label="Phone"
+                    labelPlacement={'outside'}
+                    placeholder="0100-04-02-76"
+                    classNames={{
+                      input: ['text-xs placeholder:text-[#AAAAAA]'],
+                      inputWrapper: [
+                        'flex-grow border-[1px] group-data-[focus=true]:border-[#79C420]',
+                      ],
+                      label: ['font-medium !text-[#8A8A8A] pl-2'],
+                    }}
+                  />
+                </div>
+              </form>
+
+              <div className="flex flex-col gap-3">
+                <div className="flex justify-between items-center">
+                  <h1 className="text-sm font-bold">Subtotal:</h1>
+                  <div className="flex items-center gap-[2px] text-sm font-bold">
+                    <span>$</span>
+                    <span>100</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <h1 className="text-sm font-bold">Discount:</h1>
+                  <span className="text-sm font-bold">CODE</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <h1 className="text-sm font-bold">GST:</h1>
+                  <div className="flex items-center gap-[2px] text-sm font-bold">
+                    <span>$</span>
+                    <span>5</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <h1 className="text-sm font-bold">Total:</h1>
+                  <div className="flex items-center gap-[2px] text-sm font-bold">
+                    <span>$</span>
+                    <span>105</span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-[10px] font-medium text-[#8A8A8A] uppercase">
+                50% Deposit is required to commence work.
+                <br />
+                E-Transfers are prefered.
+                <br />
+                Full payment is due before final files will be released.
+                <br />
+                Additonal fees may apply.
+              </p>
+            </div>
           </div>
 
           <div className="sticky bottom-0 flex gap-3 bg-white z-10 pt-4">
@@ -174,7 +183,7 @@ const Payment = () => {
           </div>
         </div>
 
-        <div className="basis-8/12 rounded flex">
+        <div className="basis-9/12 rounded flex">
           <div className="w-1/2 basis-1/2 pr-10">
             <div className="flex flex-col gap-6">
               <h1 className="text-[#434446] font-bold px-3 py-4">

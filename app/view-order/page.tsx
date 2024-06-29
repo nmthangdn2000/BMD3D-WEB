@@ -15,121 +15,145 @@ import TickCircleSvg from './assets/icons/tick-circle.svg';
 import classnames from 'classnames';
 
 import styles from './styles.module.scss';
+import { useRouter } from 'next/navigation';
 
 const ViewOrder = () => {
+  const router = useRouter();
   return (
-    <div className="container h-screen relative py-16 px-4 mx-auto">
-      <div className="flex gap-8">
-        <div className="basis-4/12 overflow-auto h-[calc(100vh-8rem)] px-2">
-          <div className="flex flex-col items-center">
-            <Image src={LogoVerticalImg.src} alt="Banner" className="w-20" />
+    <div className="container h-screen relative py-8 px-4 mx-auto">
+      <div className="flex gap-8 h-full">
+        <div className="basis-3/12 overflow-auto h-full px-2 flex flex-col justify-between">
+          <div>
+            <div className="flex flex-col items-center">
+              <Image
+                src={LogoVerticalImg.src}
+                alt="Banner"
+                className="w-20 cursor-pointer"
+                onClick={() => {
+                  router.push('/');
+                }}
+              />
+              <Spacer y={4} />
+              <Chip radius="sm">
+                <p className="text-xs ">Dashboard</p>
+              </Chip>
+            </div>
             <Spacer y={4} />
-            <Chip radius="sm">
-              <p className="text-xs ">Dashboard</p>
-            </Chip>
-          </div>
-          <Spacer y={4} />
-          <Input
-            size="sm"
-            type="text"
-            isRequired
-            label={'Project Name'}
-            labelPlacement={'outside'}
-            placeholder="Project Name"
-            classNames={{
-              input: ['text-xs'],
-            }}
-          />
-          <Spacer y={4} />
-          <Input
-            size="sm"
-            type="text"
-            isRequired
-            label={'Client'}
-            labelPlacement={'outside'}
-            placeholder="Client / Project / Building"
-            classNames={{
-              input: ['text-xs'],
-            }}
-          />
-          <Spacer y={4} />
-          <div className="flex gap-3">
-            <DatePicker
+            <Input
               size="sm"
-              label={'Start'}
+              type="text"
               isRequired
-              className="max-w-[284px]"
+              label={'Project Name'}
               labelPlacement={'outside'}
+              placeholder="Project Name"
               classNames={{
                 input: ['text-xs'],
               }}
             />
-            <DatePicker
+            <Spacer y={4} />
+            <Input
               size="sm"
-              label={'End'}
+              type="text"
               isRequired
-              className="max-w-[284px]"
+              label={'Client'}
               labelPlacement={'outside'}
+              placeholder="Client / Project / Building"
               classNames={{
                 input: ['text-xs'],
               }}
             />
-          </div>
-          <Spacer y={4} />
-          <div className="flex flex-col gap-2">
-            <label className="text-xs">Work Status</label>
-            <div className={styles['work-status']}>
-              <div className={styles['line']} />
-              <div className={styles['status']}>
-                <div
-                  className={classnames(styles['finish-line'], styles['full'])}
-                />
-                <TickCircleSvg className="relative bg-white" />
-                <span className="text-xs font-medium">Estimating</span>
-              </div>
-              <div className={styles['status']}>
-                <div
-                  className={classnames(styles['finish-line'], styles['full'])}
-                />
-                <TickCircleSvg className="relative bg-white" />
-                <span className="text-xs font-medium">In Progress</span>
-              </div>
-              <div className={styles['status']}>
-                <div className={styles['finish-line']} />
-                <TickCircleSvg className="relative bg-white" />
-                <span className="text-xs font-medium">Finish</span>
+            <Spacer y={4} />
+            <div className="flex gap-3">
+              <DatePicker
+                size="sm"
+                label={'Start'}
+                isRequired
+                className="max-w-[284px]"
+                labelPlacement={'outside'}
+                classNames={{
+                  input: ['text-xs'],
+                }}
+              />
+              <DatePicker
+                size="sm"
+                label={'End'}
+                isRequired
+                className="max-w-[284px]"
+                labelPlacement={'outside'}
+                classNames={{
+                  input: ['text-xs'],
+                }}
+              />
+            </div>
+            <Spacer y={4} />
+            <div className="flex flex-col gap-2">
+              <label className="text-xs">Work Status</label>
+              <div className={styles['work-status']}>
+                <div className={styles['line']} />
+                <div className={styles['status']}>
+                  <div
+                    className={classnames(
+                      styles['finish-line'],
+                      styles['full'],
+                    )}
+                  />
+                  <TickCircleSvg className="relative bg-white" />
+                  <span className="text-xs font-medium">Estimating</span>
+                </div>
+                <div className={styles['status']}>
+                  <div
+                    className={classnames(
+                      styles['finish-line'],
+                      styles['full'],
+                    )}
+                  />
+                  <TickCircleSvg className="relative bg-white" />
+                  <span className="text-xs font-medium">In Progress</span>
+                </div>
+                <div className={styles['status']}>
+                  <div className={styles['finish-line']} />
+                  <TickCircleSvg className="relative bg-white" />
+                  <span className="text-xs font-medium">Finish</span>
+                </div>
               </div>
             </div>
+            <Spacer y={4} />
+            <div>
+              <span className="text-tiny">Load Files</span>
+              <Spacer y={1} />
+              <DropFile />
+            </div>
+            <Spacer y={4} />
+            <Input
+              size="sm"
+              type="text"
+              isRequired
+              label={'Share Files'}
+              labelPlacement={'outside'}
+              value={'https://www.google.com/'}
+              readOnly
+              classNames={{
+                input: ['text-xs', '!text-[#009238]', 'underline'],
+              }}
+            />
+            <Spacer y={8} />
           </div>
-          <Spacer y={4} />
-          <div>
-            <span className="text-tiny">Load Files</span>
-            <Spacer y={1} />
-            <DropFile />
-          </div>
-          <Spacer y={4} />
-          <Input
-            size="sm"
-            type="text"
-            isRequired
-            label={'Share Files'}
-            labelPlacement={'outside'}
-            value={'https://www.google.com/'}
-            readOnly
-            classNames={{
-              input: ['text-xs', '!text-[#009238]', 'underline'],
-            }}
-          />
-          <Spacer y={8} />
           <div className="flex gap-3">
-            <Button className="bg-[#F2F2F2] flex-1 rounded-lg">CANCEL</Button>
+            <Button
+              className="bg-[#F2F2F2] flex-1 rounded-lg"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              CANCEL
+            </Button>
             <Button className="bg-[#79C420] text-white flex-1 rounded-lg">
               UPDATE
             </Button>
           </div>
         </div>
 
-        <div className="basis-8/12 rounded overflow-hidden">
+        <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between">
           <div className="flex flex-col">
             <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
             <div className="flex gap-5 overflow-x-auto">
