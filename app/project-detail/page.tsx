@@ -150,7 +150,7 @@ const ProjectDetail = () => {
         <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between">
           <div className="flex flex-col overflow-auto">
             <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
-            <div className="grid gap-6 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+            <div className="grid gap-6 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 p-3">
               {[...Array(7)].map((_, index) => (
                 <div key={index} className="flex flex-col gap-2 items-stretch">
                   <div className="pt-1 w-full">
