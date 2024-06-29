@@ -307,7 +307,17 @@ const Payment = () => {
                         <h2 className="flex-grow text-sm font-bold">
                           Large Setup
                         </h2>
-                        <div className="flex items-center">-1+</div>
+                        <div className="flex items-center bg-[#F2F2F2] rounded-full">
+                          <span className="text-[#434446] text-sm font-bold w-6 h-6 flex justify-center items-center cursor-pointer hover:bg-[#e6e6e6] rounded-tl-full rounded-bl-full">
+                            -
+                          </span>
+                          <span className="text-[#434446] text-sm font-bold w-6 h-6 flex justify-center items-center">
+                            1
+                          </span>
+                          <span className="text-[#434446] text-sm font-bold w-6 h-6 flex justify-center items-center cursor-pointer hover:bg-[#e6e6e6] rounded-tr-full rounded-br-full">
+                            +
+                          </span>
+                        </div>
                         <div className="flex items-center gap-[2px] text-xs font-bold pr-4">
                           <span>$</span>
                           <span>100</span>

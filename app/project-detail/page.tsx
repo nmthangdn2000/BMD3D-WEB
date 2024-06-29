@@ -61,7 +61,7 @@ const ProjectDetail = () => {
               }}
             />
             <Spacer y={4} />
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <DatePicker
                 size="sm"
                 label={'Start Date'}
@@ -122,9 +122,9 @@ const ProjectDetail = () => {
             />
             <Spacer y={8} />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <Button
-              className="bg-[#F2F2F2] flex-1"
+              className="bg-[#F2F2F2] flex-1 min-w-[100px]"
               onClick={() => {
                 router.push('/');
               }}
@@ -132,7 +132,7 @@ const ProjectDetail = () => {
               CANCEL
             </Button>
             <Button
-              className="bg-[#79C420] text-white flex-1"
+              className="bg-[#79C420] text-white flex-1 min-w-[100px]"
               onClick={() => {
                 router.push('/add-order/setup-type');
               }}
