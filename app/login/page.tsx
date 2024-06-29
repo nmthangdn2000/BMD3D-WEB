@@ -27,6 +27,9 @@ const Login = () => {
     if (user) router.replace('/');
   }, [user, router, isLoadingAuth]);
 
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleShowPassword = () => {
@@ -34,6 +37,8 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    if (!email || !password) return;
+
     dispatch(
       setUser({ name: 'NM Thang', accessToken: 'TRUE_TOKEN_ey12312312313' }),
     );
@@ -89,6 +94,9 @@ const Login = () => {
             <div>
               <Input
                 variant="bordered"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                validate={validateEmailOrPhone}
                 size="sm"
                 type="text"
                 label={'Your email address / phone number'}
@@ -106,6 +114,13 @@ const Login = () => {
               <Input
                 variant="bordered"
                 size="sm"
+                validate={(value) =>
+                  value.length < 6
+                    ? 'Password must be at least 6 characters'
+                    : true
+                }
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type={showPassword ? 'text' : 'password'}
                 label={'Your password'}
                 labelPlacement={'outside'}
@@ -173,3 +188,18 @@ const Login = () => {
 };
 
 export default Login;
+
+const validateEmailOrPhone = (value: string) => {
+  if (!value) {
+    return 'Email or phone number is required';
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{9,}$/; // Dùng định dạng E.164 cho số điện thoại quốc tế
+
+  if (!emailRegex.test(value) && !phoneRegex.test(value)) {
+    return 'Invalid email address or phone number';
+  }
+
+  return true;
+};
