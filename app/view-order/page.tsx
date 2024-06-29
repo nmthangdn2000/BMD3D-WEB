@@ -138,16 +138,16 @@ const ViewOrder = () => {
             />
             <Spacer y={8} />
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <Button
-              className="bg-[#F2F2F2] flex-1 rounded-lg"
+              className="bg-[#F2F2F2] flex-1 rounded-lg min-w-[100px]"
               onClick={() => {
                 router.push('/');
               }}
             >
               CANCEL
             </Button>
-            <Button className="bg-[#79C420] text-white flex-1 rounded-lg">
+            <Button className="bg-[#79C420] text-white flex-1 rounded-lg min-w-[100px]">
               UPDATE
             </Button>
           </div>

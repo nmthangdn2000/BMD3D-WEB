@@ -137,9 +137,9 @@ export const AddOrderSetupTypeClient = () => {
             </div>
           </div>
 
-          <div className="sticky bottom-0 flex gap-3 bg-white z-10 pt-4">
+          <div className="sticky bottom-0 flex gap-3 bg-white z-10 pt-4 flex-wrap">
             <Button
-              className="flex-grow bg-[#F2F2F2] font-bold rounded-lg p-0 h-[40px]"
+              className="flex-grow bg-[#F2F2F2] font-bold rounded-lg p-0 h-[40px] min-w-[100px]"
               onClick={() => {
                 router.push('/project-detail');
               }}
@@ -147,7 +147,7 @@ export const AddOrderSetupTypeClient = () => {
               BACK
             </Button>
             <Button
-              className="flex-grow bg-[#79C420] text-white font-bold rounded-lg p-0 h-[40px]"
+              className="flex-grow bg-[#79C420] text-white font-bold rounded-lg p-0 h-[40px] min-w-[100px]"
               onClick={() => {
                 router.push('/add-order/feature');
               }}

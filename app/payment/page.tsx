@@ -168,12 +168,12 @@ const Payment = () => {
             </div>
           </div>
 
-          <div className="sticky bottom-0 flex gap-3 bg-white z-10 pt-4">
-            <Button className="flex-grow bg-[#F2F2F2] font-bold rounded-lg p-0 h-[40px]">
+          <div className="sticky bottom-0 flex gap-3 bg-white z-10 pt-4 flex-wrap">
+            <Button className="flex-grow bg-[#F2F2F2] font-bold rounded-lg p-0 h-[40px] min-w-[100px]">
               SAVE QUOTE
             </Button>
             <Button
-              className="flex-grow bg-[#79C420] text-white font-bold rounded-lg p-0 h-[40px]"
+              className="flex-grow bg-[#79C420] text-white font-bold rounded-lg p-0 h-[40px] min-w-[100px]"
               onClick={() => {
                 router.push('/view-order');
               }}
