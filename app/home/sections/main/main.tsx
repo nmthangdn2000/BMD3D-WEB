@@ -12,6 +12,8 @@ import CloseSvg from './assets/icons/close.svg';
 export const Main = () => {
   const router = useRouter();
 
+  const existingOrderRef = useRef<HTMLDivElement>(null);
+
   const [showExistingOrder, setShowExistingOrder] = useState(false);
 
   const handleExistingOrder = () => {
@@ -36,7 +38,9 @@ export const Main = () => {
           className="flex items-center container mx-auto"
           initial={{ height: '100%' }}
           animate={{
-            height: showExistingOrder ? `calc(100% - 24vh)` : '100%',
+            height: showExistingOrder
+              ? `calc(100% - ${existingOrderRef.current?.clientHeight}px)`
+              : '100%',
           }}
           transition={{ duration: 0.5 }} // thời gian chuyển đổi, có thể điều chỉnh
         >
@@ -70,12 +74,13 @@ export const Main = () => {
           </div>
         </motion.div>
         <div
+          ref={existingOrderRef}
           className="flex flex-col bg-white transition-all duration-300 ease-in-out"
           style={{
             opacity: showExistingOrder ? 1 : 0,
           }}
         >
-          <div className="container h-[24vh] relative flex flex-col gap-2 pt-4 pb-8 px-4 mx-auto">
+          <div className="container relative flex flex-col gap-2 pt-4 pb-8 px-4 mx-auto">
             <div className="flex justify-between items-center">
               <span className="text-[#434446] font-bold">EXISTING ORDER</span>
               <button onClick={handleExistingOrder}>
@@ -115,7 +120,7 @@ export const Main = () => {
                       router.push('/project-detail');
                     }}
                   >
-                    <div className="flex-grow bg-[#e7e7e7] transition-all duration-300 ease-in-out hover:bg-[#F2F2F2] flex flex-col gap-2 justify-center items-center">
+                    <div className="flex-grow bg-[#e7e7e7] transition-all duration-300 ease-in-out hover:bg-[#F2F2F2] flex flex-col gap-2 justify-center items-center rounded">
                       <FilePlusSvg />
                       <span className="text-xs text-[#434446]">
                         Add New Order
