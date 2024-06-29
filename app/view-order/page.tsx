@@ -40,6 +40,7 @@ const ViewOrder = () => {
             </div>
             <Spacer y={4} />
             <Input
+              variant="bordered"
               size="sm"
               type="text"
               isRequired
@@ -52,6 +53,7 @@ const ViewOrder = () => {
             />
             <Spacer y={4} />
             <Input
+              variant="bordered"
               size="sm"
               type="text"
               isRequired
@@ -63,22 +65,24 @@ const ViewOrder = () => {
               }}
             />
             <Spacer y={4} />
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               <DatePicker
+                variant="bordered"
                 size="sm"
                 label={'Start'}
                 isRequired
-                className="max-w-[284px]"
+                className="min-w-[120px] flex-1"
                 labelPlacement={'outside'}
                 classNames={{
                   input: ['text-xs'],
                 }}
               />
               <DatePicker
+                variant="bordered"
                 size="sm"
                 label={'End'}
                 isRequired
-                className="max-w-[284px]"
+                className="min-w-[120px] flex-1"
                 labelPlacement={'outside'}
                 classNames={{
                   input: ['text-xs'],
@@ -132,6 +136,7 @@ const ViewOrder = () => {
               labelPlacement={'outside'}
               value={'https://www.google.com/'}
               readOnly
+              disabled
               classNames={{
                 input: ['text-xs', '!text-[#009238]', 'underline'],
               }}
@@ -153,14 +158,14 @@ const ViewOrder = () => {
           </div>
         </div>
 
-        <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between">
+        <div className="basis-9/12 h-full rounded overflow-auto flex flex-col justify-between">
           <div className="flex flex-col">
             <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
             <div className="flex gap-5 overflow-x-auto">
               {[...Array(10)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pt-1 w-full px-[10px] first:pl-1 last:pr-1">
                     <Image
@@ -197,7 +202,7 @@ const ViewOrder = () => {
               {[...Array(10)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pl-1 pt-1 w-full">
                     <Image

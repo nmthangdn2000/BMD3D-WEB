@@ -38,6 +38,7 @@ const ProjectDetail = () => {
             </div>
             <Spacer y={4} />
             <Input
+              variant="bordered"
               size="sm"
               type="text"
               isRequired
@@ -50,6 +51,7 @@ const ProjectDetail = () => {
             />
             <Spacer y={4} />
             <Input
+              variant="bordered"
               size="sm"
               type="text"
               isRequired
@@ -65,8 +67,9 @@ const ProjectDetail = () => {
               <DatePicker
                 size="sm"
                 label={'Start Date'}
+                variant="bordered"
                 isRequired
-                className="max-w-[284px]"
+                className="min-w-[120px] flex-1"
                 labelPlacement={'outside'}
                 classNames={{
                   input: ['text-xs'],
@@ -75,8 +78,9 @@ const ProjectDetail = () => {
               <DatePicker
                 size="sm"
                 label={'Due Date'}
+                variant="bordered"
                 isRequired
-                className="max-w-[284px]"
+                className="min-w-[120px] flex-1"
                 labelPlacement={'outside'}
                 classNames={{
                   input: ['text-xs'],
@@ -85,12 +89,13 @@ const ProjectDetail = () => {
             </div>
             <Spacer y={4} />
             <Textarea
+              variant="bordered"
               isRequired
               size="sm"
               label="General Instruction"
               labelPlacement="outside"
               placeholder="Please provide any additional information or instructions for this project."
-              className="max-w-xs"
+              className="w-full"
               classNames={{
                 input: ['text-xs'],
               }}
@@ -145,15 +150,13 @@ const ProjectDetail = () => {
         <div className="basis-9/12 rounded overflow-hidden flex flex-col justify-between">
           <div className="flex flex-col overflow-auto">
             <h1 className="text-sm font-bold px-3 py-4">FILES</h1>
-            <div className="flex flex-wrap -pr-3">
+            <div className="grid gap-6 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
               {[...Array(7)].map((_, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-3"
-                >
+                <div key={index} className="flex flex-col gap-2 items-stretch">
                   <div className="pt-1 w-full">
                     <Image
-                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      removeWrapper
+                      className="w-full object-cover p-2 shadow-small h-[160px]"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
@@ -164,9 +167,9 @@ const ProjectDetail = () => {
                   </span>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4">
-                <div className="pt-1 pr-14">
-                  <div className="h-[152px] w-full flex flex-col p-2 rounded-large cursor-pointer border-[#8A8A8A] border-dashed border-2">
+              <div className="flex flex-col gap-2 items-stretch w-full">
+                <div className="pt-1 w-full">
+                  <div className="w-full h-[160px] flex flex-col p-2 rounded-large cursor-pointer border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
                       <PlusSvg />
                     </div>

@@ -70,9 +70,9 @@ const Login = () => {
           </div>
           <div>
             <Input
+              variant="bordered"
               size="sm"
               type="text"
-              variant="bordered"
               label={'Your email address / phone number'}
               labelPlacement={'outside'}
               placeholder="Project Name"
@@ -86,9 +86,9 @@ const Login = () => {
             />
             <Spacer y={4} />
             <Input
+              variant="bordered"
               size="sm"
               type={showPassword ? 'text' : 'password'}
-              variant="bordered"
               label={'Your password'}
               labelPlacement={'outside'}
               placeholder="Project Name"

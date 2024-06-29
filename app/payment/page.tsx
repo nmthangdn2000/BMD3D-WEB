@@ -48,9 +48,9 @@ const Payment = () => {
             <div className="flex-grow flex flex-col gap-6 overflow-auto">
               <form action="#" className="flex flex-col gap-3">
                 <Input
+                  variant="bordered"
                   size="sm"
                   type="text"
-                  variant="bordered"
                   label="Billing Company"
                   labelPlacement={'outside'}
                   placeholder="Project Name"
@@ -64,9 +64,9 @@ const Payment = () => {
                 />
                 <div className="flex gap-3">
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     label="First Name"
                     labelPlacement={'outside'}
                     placeholder="First Name"
@@ -79,9 +79,9 @@ const Payment = () => {
                     }}
                   />
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     label="Last Name"
                     labelPlacement={'outside'}
                     placeholder="Last Name"
@@ -96,9 +96,9 @@ const Payment = () => {
                 </div>
                 <div className="flex gap-3">
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     label="Email"
                     labelPlacement={'outside'}
                     placeholder="nicolek22@gmail.com"
@@ -111,9 +111,9 @@ const Payment = () => {
                     }}
                   />
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     label="Phone"
                     labelPlacement={'outside'}
                     placeholder="0100-04-02-76"

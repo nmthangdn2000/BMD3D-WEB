@@ -12,8 +12,6 @@ import CloseSvg from './assets/icons/close.svg';
 export const Main = () => {
   const router = useRouter();
 
-  const existingOrderRef = useRef<HTMLDivElement>(null);
-
   const [showExistingOrder, setShowExistingOrder] = useState(false);
 
   const handleExistingOrder = () => {
@@ -38,9 +36,7 @@ export const Main = () => {
           className="flex items-center container mx-auto"
           initial={{ height: '100%' }}
           animate={{
-            height: showExistingOrder
-              ? `calc(100% - ${existingOrderRef.current?.offsetHeight}px)`
-              : '100%',
+            height: showExistingOrder ? `calc(100% - 24vh)` : '100%',
           }}
           transition={{ duration: 0.5 }} // thời gian chuyển đổi, có thể điều chỉnh
         >
@@ -74,7 +70,6 @@ export const Main = () => {
           </div>
         </motion.div>
         <div
-          ref={existingOrderRef}
           className="flex flex-col bg-white transition-all duration-300 ease-in-out"
           style={{
             opacity: showExistingOrder ? 1 : 0,

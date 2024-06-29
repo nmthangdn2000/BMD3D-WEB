@@ -63,9 +63,9 @@ const AddOrderFeature = () => {
                     </button>
                   </div>
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     placeholder="Placeholder"
                     classNames={{
                       input: ['text-xs placeholder:text-[#AAAAAA]'],
@@ -91,9 +91,9 @@ const AddOrderFeature = () => {
                     </button>
                   </div>
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     placeholder="Placeholder"
                     classNames={{
                       input: ['text-xs placeholder:text-[#AAAAAA]'],
@@ -130,9 +130,9 @@ const AddOrderFeature = () => {
                     </button>
                   </div>
                   <Input
+                    variant="bordered"
                     size="sm"
                     type="text"
-                    variant="bordered"
                     placeholder="Placeholder"
                     classNames={{
                       input: ['text-xs placeholder:text-[#AAAAAA]'],
@@ -147,7 +147,7 @@ const AddOrderFeature = () => {
                       Lightning
                     </h1>
                     <div className="flex">
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="bordered"
                           size="sm"
@@ -156,7 +156,7 @@ const AddOrderFeature = () => {
                           Dawn
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -165,7 +165,7 @@ const AddOrderFeature = () => {
                           Day
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -174,7 +174,7 @@ const AddOrderFeature = () => {
                           Dusk
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -190,7 +190,7 @@ const AddOrderFeature = () => {
                       Color
                     </h1>
                     <div className="flex">
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="bordered"
                           size="sm"
@@ -199,7 +199,7 @@ const AddOrderFeature = () => {
                           A
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -208,7 +208,7 @@ const AddOrderFeature = () => {
                           B
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -217,7 +217,7 @@ const AddOrderFeature = () => {
                           C
                         </Button>
                       </div>
-                      <div className="w-[25%] basis-1/4 pr-2 last:pr-0">
+                      <div className="w-[25%] pr-2 last:pr-0">
                         <Button
                           variant="flat"
                           size="sm"
@@ -285,16 +285,16 @@ const AddOrderFeature = () => {
         <div className="basis-9/12 rounded flex flex-col gap-6 overflow-auto">
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">SET UP</h1>
-            <div className="flex flex-wrap pl-5">
+            <div className="flex flex-wrap px-5 gap-3">
               {[...Array(2)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pt-1 w-full">
                     <Image
                       removeWrapper
-                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
@@ -316,9 +316,9 @@ const AddOrderFeature = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5">
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
                 <div className="pt-1">
-                  <div className="h-[152px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
+                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
                       <PlusSvg />
                     </div>
@@ -330,16 +330,16 @@ const AddOrderFeature = () => {
 
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">VIEW</h1>
-            <div className="flex flex-wrap pl-5">
-              {[...Array(3)].map((_, index) => (
+            <div className="flex flex-wrap px-5 gap-3">
+              {[...Array(7)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pt-1 w-full">
                     <Image
                       removeWrapper
-                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
@@ -361,9 +361,9 @@ const AddOrderFeature = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5">
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
                 <div className="pt-1">
-                  <div className="h-[152px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
+                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
                       <PlusSvg />
                     </div>
@@ -375,16 +375,16 @@ const AddOrderFeature = () => {
 
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">DRONE</h1>
-            <div className="flex flex-wrap pl-5">
+            <div className="flex flex-wrap px-5 gap-3">
               {[...Array(0)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pt-1 w-full">
                     <Image
                       removeWrapper
-                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
@@ -406,9 +406,9 @@ const AddOrderFeature = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5">
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
                 <div className="pt-1">
-                  <div className="h-[152px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
+                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
                       <PlusSvg />
                     </div>
@@ -420,16 +420,16 @@ const AddOrderFeature = () => {
 
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">ANIMATION</h1>
-            <div className="flex flex-wrap pl-5">
+            <div className="flex flex-wrap px-5 gap-3">
               {[...Array(0)].map((_, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5"
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
                 >
                   <div className="pt-1 w-full">
                     <Image
                       removeWrapper
-                      className="w-full h-[152px] object-cover p-2 shadow-small"
+                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
                       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
@@ -451,9 +451,9 @@ const AddOrderFeature = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch basis-1/4 pr-5">
+              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
                 <div className="pt-1">
-                  <div className="h-[152px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
+                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
                     <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
                       <PlusSvg />
                     </div>
