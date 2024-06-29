@@ -135,10 +135,7 @@ const Register = () => {
             <div className="flex justify-center">
               <span className="text-[14px] font-medium text-[#434446]">
                 Already has an Account?{' '}
-                <Link
-                  href={'/register'}
-                  className="text-[#79C420] cursor-pointer"
-                >
+                <Link href={'/login'} className="text-[#79C420] cursor-pointer">
                   Sign in
                 </Link>
               </span>
