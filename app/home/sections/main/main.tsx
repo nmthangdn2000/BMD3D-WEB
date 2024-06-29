@@ -59,7 +59,7 @@ export const Main = () => {
                 className="bg-[#F2F2F2] font-bold rounded-lg w-[154px]"
                 onClick={handleExistingOrder}
               >
-                EXITING ORDER
+                EXISTING ORDER
               </Button>
               <Button
                 className="bg-[#79C420] text-white font-bold rounded-lg w-[154px]"
