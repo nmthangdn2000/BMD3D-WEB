@@ -1,6 +1,6 @@
-import { demoStatesReducer } from '@lib/services/demo/demo.slice';
+import { globalStatesReducer } from '@lib/services/global-states';
 
 // Combine all service reducers
 export const rootReducer = {
-  demoStates: demoStatesReducer,
+  globalStates: globalStatesReducer,
 };

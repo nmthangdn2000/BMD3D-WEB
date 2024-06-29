@@ -1,9 +1,17 @@
 import { LogoImg } from '@lib/global/images';
+import { setUser } from '@lib/services/global-states';
+import { useAppDispatch } from '@lib/store';
 import { Button, Image } from '@nextui-org/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(setUser(null));
+  };
+
   const navLinks = [
     {
       title: 'About',
@@ -54,6 +62,7 @@ const Header = () => {
           variant="flat"
           size="sm"
           className="text-sm font-bold text-[#434446] px-6"
+          onClick={handleLogout}
         >
           Log Out
         </Button>
