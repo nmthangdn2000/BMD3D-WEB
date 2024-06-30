@@ -6,9 +6,9 @@ import ChevronDownSvg from '../assets/icons/chevron-down.svg';
 import CloseSvg from '../assets/icons/close.svg';
 import ChevronUpSvg from '../assets/icons/chevron-up.svg';
 
-const Lightnings = ['Dawn', 'Day', 'Dusk', 'Custom'];
+const Lightnings = ['DAWN', 'DAY', 'DUSK', 'CUSTOM'];
 const colors = ['A', 'B', 'C', 'D'];
-const resolutions = ['4K', '8K'];
+const resolutions = ['4K', '10K'];
 
 export type ItemFeatureData = {
   name: string;
@@ -77,7 +77,7 @@ export const ItemFeature = ({ onRemove, data, name, id }: ItemFeatureProps) => {
       >
         <div className="flex flex-col gap-4 mt-3">
           <h1 className="text-xs font-medium text-[#8A8A8A] pl-3 pr-2">
-            Lightning
+            Lighting
           </h1>
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-3">
             {Lightnings.map((item, index) => (

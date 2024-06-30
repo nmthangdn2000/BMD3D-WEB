@@ -23,6 +23,7 @@ import {
   ItemFeatureData,
 } from '@app/add-order/feature/components/Item';
 import { useAuthentication } from '@lib/hooks/use-authentication';
+import { url } from 'inspector';
 
 const viewDefault: ItemFeatureData = {
   name: 'View 1',
@@ -37,6 +38,57 @@ const setupDefault: ItemFeatureData = {
   color: 'A',
   resolution: '4K',
 };
+
+const exteriorMenu = [
+  {
+    image: require(`./assets/images/large.jpg`).default,
+    name: '+ LARGE SETUP',
+    sub: 'per building',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/largeView.jpg`).default,
+    name: '+ LARGE VIEW',
+    sub: 'per view',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/drone.jpg`).default,
+    name: '+ DRONE',
+    sub: 'per shoot',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/medium.jpg`).default,
+    name: '+ MEDIUM SETUP',
+    sub: 'per black',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/small.jpeg`).default,
+    name: '+ SMALL SETUP',
+    sub: 'per home',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/xs.jpg`).default,
+    name: '+ XS SETUP',
+    sub: 'per abject',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/360.jpg`).default,
+    name: '+ 360° SETUP',
+    sub: 'per pav',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/anim.jpg`).default,
+    name: '+ ANMI. SETUP',
+    sub: 'per scene',
+    price: '100',
+  },
+];
 
 const AddOrderFeature = () => {
   const router = useRouter();
@@ -176,237 +228,74 @@ const AddOrderFeature = () => {
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">YOUR ORDER</h1>
             <div className="flex flex-wrap px-5 gap-3">
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://khaidat.com.vn/wp-content/uploads/2019/11/cac-dang-thiet-ke-kien-%E2%80%8B%E2%80%8Btruc-nha-pho-va-mot-so-mau-thiet-ke-dep-hinh-1.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + LARGE SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per building
+              {exteriorMenu.slice(0, 3).map((item, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
+                >
+                  <div className="pt-1 w-full">
+                    <Image
+                      removeWrapper
+                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
+                      src={item.image.src}
+                      fallbackSrc="https://via.placeholder.com/300x200"
+                      alt={item.name + 'image'}
+                    />
+                  </div>
+                  <div className="flex flex-col mb-2">
+                    <span className="text-[14px] font-bold uppercase text-ellipsis">
+                      {item.name}
                     </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
+                    <div className="flex justify-between">
+                      <span className="text-xs font-medium text-[#434446] opacity-60">
+                        {item.sub}
+                      </span>
+                      <div className="flex items-center gap-[2px] text-xs font-bold">
+                        <span>$</span>
+                        <span>{item.price}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="http://kientrucdoorway.vn/wp-content/uploads/2019/08/4-cac-kieu-kien-truc-nha-o-hien-dai.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + LARGE VIEW
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per view
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://tokyocamera.vn/wp-content/uploads/2021/04/DJI-AIR-2S-Drone%E4%B8%A8%E4%B8%BB%E6%9C%BA04-scaled-e1618559612811.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + DRONE
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per shoot
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           <div className="flex flex-col">
             <h1 className="text-base font-bold px-3 py-4">EXTERIOR MENU</h1>
             <div className="flex flex-wrap px-5 gap-3">
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://khaidat.com.vn/wp-content/uploads/2019/11/cac-dang-thiet-ke-kien-%E2%80%8B%E2%80%8Btruc-nha-pho-va-mot-so-mau-thiet-ke-dep-hinh-1.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + LARGE SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per building
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
+              {exteriorMenu.map((item, index) =>
+                index !== 1 && index !== 2 ? (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 flex flex-col gap-2 items-stretch"
+                  >
+                    <div className="pt-1 w-full">
+                      <Image
+                        removeWrapper
+                        className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
+                        src={item.image.src}
+                        fallbackSrc="https://via.placeholder.com/300x200"
+                        alt={item.name + 'image'}
+                      />
+                    </div>
+                    <div className="flex flex-col mb-2">
+                      <span className="text-[14px] font-bold uppercase text-ellipsis">
+                        {item.name}
+                      </span>
+                      <div className="flex justify-between">
+                        <span className="text-xs font-medium text-[#434446] opacity-60">
+                          {item.sub}
+                        </span>
+                        <div className="flex items-center gap-[2px] text-xs font-bold">
+                          <span>$</span>
+                          <span>{item.price}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://chanhnghia.com/upload/tiny/4/42/43/thiet-ke-biet-thu-kieu-phap.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + MEDIUM SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per black
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="http://kientrucdoorway.vn/wp-content/uploads/2019/08/10-cac-kieu-kien-truc-nha-o-hien-dai.jpeg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + SMALL SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per home
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://hn.ss.bfcplatform.vn/tckt/2018/11/18A11001-768x512.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + XS SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per abject
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="https://banner2.cleanpng.com/20180325/zpw/kisspng-computer-icons-immersive-video-clip-art-360-camera-5ab7eee167e996.4438343315220036814256.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + 360&deg; SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per pav
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1 w-full">
-                  <Image
-                    removeWrapper
-                    className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                    src="http://kientrucdoorway.vn/wp-content/uploads/2019/08/8-cac-kieu-kien-truc-nha-o-hien-dai.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
-                    alt="NextUI Image with fallback"
-                  />
-                </div>
-                <div className="flex flex-col mb-2">
-                  <span className="text-[14px] font-bold uppercase text-ellipsis">
-                    + ANMI. SETUP
-                  </span>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-medium text-[#434446] opacity-60">
-                      per scene
-                    </span>
-                    <div className="flex items-center gap-[2px] text-xs font-bold">
-                      <span>$</span>
-                      <span>100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                ) : null,
+              )}
             </div>
           </div>
         </div>

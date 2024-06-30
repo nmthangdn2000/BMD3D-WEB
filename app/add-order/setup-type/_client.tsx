@@ -30,19 +30,15 @@ const images = Array.from(
   { length: 10 },
   (_, i) => require(`./assets/images/${i + 1}.jpg`).default,
 );
-const lightings = ['DAWN', 'DAY', 'DUSK', 'CUSTOM MODAL'];
-const colours = ['A', 'B', 'C', 'D'];
-const others = ['1', '2', '3', '4'];
-const resolutions = ['4K', '10K'];
+const budgets = ['Quick Start', 'Essentials', 'All Details', 'Packages'];
+const sizes = ['Extra Small', 'Small', 'Medium', 'Large'];
 
 export const AddOrderSetupTypeClient = () => {
   const router = useRouter();
   const { isLoading: isLoadingAuth, user } = useAuthentication();
 
-  const [lighting, setLighting] = useState<string>('');
-  const [colour, setColour] = useState<string>('');
-  const [other, setOther] = useState<string>('');
-  const [resolution, setResolution] = useState<string>('');
+  const [budget, setBudget] = useState<string>('Quick Start');
+  const [size, setSize] = useState<string>('Extra Small');
 
   return (
     user && (
@@ -69,22 +65,22 @@ export const AddOrderSetupTypeClient = () => {
                 <div className="flex flex-col gap-3">
                   <div>
                     <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
-                      LIGHTING
+                      Budget
                     </h1>
                     <Spacer y={2} />
                     <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-                      {lightings.map((item, index) => (
+                      {budgets.map((item, index) => (
                         <Button
                           key={index}
-                          variant={lighting === item ? 'bordered' : 'flat'}
+                          variant={budget === item ? 'bordered' : 'flat'}
                           size="sm"
                           className={`border-1 ${
-                            lighting === item
+                            budget === item
                               ? 'border-[#79C420]'
                               : 'border-gray-300'
                           } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
                           onClick={() => {
-                            setLighting(item);
+                            setBudget(item);
                           }}
                         >
                           {item}
@@ -96,79 +92,23 @@ export const AddOrderSetupTypeClient = () => {
                   <Spacer y={4} />
                   <div>
                     <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
-                      COLOUR
+                      Size
                     </h1>
                     <Spacer y={2} />
 
                     <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-                      {colours.map((item, index) => (
+                      {sizes.map((item, index) => (
                         <Button
                           key={index}
-                          variant={colour === item ? 'bordered' : 'flat'}
+                          variant={size === item ? 'bordered' : 'flat'}
                           size="sm"
                           className={`border-1 ${
-                            colour === item
+                            size === item
                               ? 'border-[#79C420]'
                               : 'border-gray-300'
                           } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
                           onClick={() => {
-                            setColour(item);
-                          }}
-                        >
-                          {item}
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Spacer y={4} />
-                  <div>
-                    <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
-                      OTHER
-                    </h1>
-                    <Spacer y={2} />
-
-                    <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-                      {others.map((item, index) => (
-                        <Button
-                          key={index}
-                          variant={other === item ? 'bordered' : 'flat'}
-                          size="sm"
-                          className={`border-1 ${
-                            other === item
-                              ? 'border-[#79C420]'
-                              : 'border-gray-300'
-                          } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
-                          onClick={() => {
-                            setOther(item);
-                          }}
-                        >
-                          {item}
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Spacer y={4} />
-                  <div>
-                    <h1 className="text-sm font-bold text-[#8A8A8A] pl-3 pr-2">
-                      RESOLUTION
-                    </h1>
-                    <Spacer y={2} />
-
-                    <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-                      {resolutions.map((item, index) => (
-                        <Button
-                          key={index}
-                          variant={resolution === item ? 'bordered' : 'flat'}
-                          size="sm"
-                          className={`border-1 ${
-                            resolution === item
-                              ? 'border-[#79C420]'
-                              : 'border-gray-300'
-                          } rounded-lg text-[#434446] font-bold h-8 py-0 px-0 w-full`}
-                          onClick={() => {
-                            setResolution(item);
+                            setSize(item);
                           }}
                         >
                           {item}
