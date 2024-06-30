@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 import CloseSvg from './assets/icons/close.svg';
 
 const images = Array.from(
-  { length: 6 },
+  { length: 5 },
   (_, i) =>
     require(`../../../add-order/setup-type/assets/images/${i + 1}.jpg`).default,
 );
