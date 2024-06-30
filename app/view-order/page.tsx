@@ -19,6 +19,49 @@ import { useRouter } from 'next/navigation';
 import { useAuthentication } from '@lib/hooks/use-authentication';
 import { ItemFile } from '@app/project-detail/components/item-file';
 
+const features = [
+  {
+    image: require(`./assets/images/large.jpg`).default,
+    name: 'LARGE SETUP',
+    sub: 'per building',
+  },
+  {
+    image: require(`./assets/images/largeView.jpg`).default,
+    name: 'LARGE VIEW',
+    sub: 'per view',
+  },
+  {
+    image: require(`./assets/images/drone.jpg`).default,
+    name: 'DRONE',
+    sub: 'per shoot',
+  },
+  {
+    image: require(`./assets/images/medium.jpg`).default,
+    name: 'MEDIUM SETUP',
+    sub: 'per black',
+  },
+  {
+    image: require(`./assets/images/small.jpeg`).default,
+    name: 'SMALL SETUP',
+    sub: 'per home',
+  },
+  {
+    image: require(`./assets/images/xs.jpg`).default,
+    name: 'XS SETUP',
+    sub: 'per abject',
+  },
+  {
+    image: require(`./assets/images/360.jpg`).default,
+    name: '360° SETUP',
+    sub: 'per pav',
+  },
+  {
+    image: require(`./assets/images/anim.jpg`).default,
+    name: 'ANMI. SETUP',
+    sub: 'per scene',
+  },
+];
+
 const ViewOrder = () => {
   const [files, setFiles] = React.useState<File[]>(
     typeof window === 'undefined'
@@ -220,7 +263,7 @@ const ViewOrder = () => {
           <div className="flex flex-col">
             <h1 className="text-sm font-bold px-3 py-4">FEATURES</h1>
             <div className="flex gap-5 overflow-x-auto">
-              {[...Array(10)].map((_, index) => (
+              {features.map((item, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 flex flex-col gap-2 items-stretch"
@@ -228,17 +271,17 @@ const ViewOrder = () => {
                   <div className="pl-1 pt-1 w-full">
                     <Image
                       className="w-full h-[152px] object-cover p-2 shadow-small"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
+                      src={item.image.src}
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
                     />
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-bold uppercase text-ellipsis">
-                      Setup
+                      {item.name}
                     </span>
                     <span className="text-xs font-medium text-gray-500">
-                      Large
+                      {item.sub}
                     </span>
                   </div>
                 </div>

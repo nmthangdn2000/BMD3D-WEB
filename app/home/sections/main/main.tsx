@@ -9,6 +9,12 @@ import { useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import CloseSvg from './assets/icons/close.svg';
 
+const images = Array.from(
+  { length: 6 },
+  (_, i) =>
+    require(`../../../add-order/setup-type/assets/images/${i + 1}.jpg`).default,
+);
+
 export const Main = () => {
   const router = useRouter();
 
@@ -88,10 +94,10 @@ export const Main = () => {
               </button>
             </div>
             <div className="flex">
-              {[...Array(5)].map((_, index) => (
+              {images.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 basis-1/6 first:pl-1 pr-3 last:pr-1 "
+                  className="flex-shrink-0 first:pl-1 pr-3 last:pr-1 "
                 >
                   <div
                     className="relative pt-1 w-full cursor-pointer"
@@ -101,13 +107,13 @@ export const Main = () => {
                   >
                     <Image
                       className="w-full h-[164px] object-cover p-2 shadow-small"
-                      src={ExistingOrderPng.src}
+                      src={image.src}
                       fallbackSrc="https://via.placeholder.com/300x200"
                       alt="NextUI Image with fallback"
                     />
 
                     <span className="absolute bottom-3 left-4 text-sm text-white font-bold z-10">
-                      IMG NAME
+                      BDM {index + 1}
                     </span>
                   </div>
                 </div>

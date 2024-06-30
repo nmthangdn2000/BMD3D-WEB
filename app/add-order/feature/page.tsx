@@ -23,6 +23,7 @@ import {
   ItemFeatureData,
 } from '@app/add-order/feature/components/Item';
 import { useAuthentication } from '@lib/hooks/use-authentication';
+import { url } from 'inspector';
 
 const viewDefault: ItemFeatureData = {
   name: 'View 1',
@@ -37,6 +38,57 @@ const setupDefault: ItemFeatureData = {
   color: 'A',
   resolution: '4K',
 };
+
+const exteriorMenu = [
+  {
+    image: require(`./assets/images/large.jpg`).default,
+    name: '+ LARGE SETUP',
+    sub: 'per building',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/largeView.jpg`).default,
+    name: '+ LARGE VIEW',
+    sub: 'per view',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/drone.jpg`).default,
+    name: '+ DRONE',
+    sub: 'per shoot',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/medium.jpg`).default,
+    name: '+ MEDIUM SETUP',
+    sub: 'per black',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/small.jpeg`).default,
+    name: '+ SMALL SETUP',
+    sub: 'per home',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/xs.jpg`).default,
+    name: '+ XS SETUP',
+    sub: 'per abject',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/360.jpg`).default,
+    name: '+ 360° SETUP',
+    sub: 'per pav',
+    price: '100',
+  },
+  {
+    image: require(`./assets/images/anim.jpg`).default,
+    name: '+ ANMI. SETUP',
+    sub: 'per scene',
+    price: '100',
+  },
+];
 
 const AddOrderFeature = () => {
   const router = useRouter();
@@ -174,9 +226,9 @@ const AddOrderFeature = () => {
 
         <div className="basis-9/12 rounded flex flex-col gap-6 overflow-auto">
           <div className="flex flex-col">
-            <h1 className="text-base font-bold px-3 py-4">SET UP</h1>
+            <h1 className="text-base font-bold px-3 py-4">YOUR ORDER</h1>
             <div className="flex flex-wrap px-5 gap-3">
-              {[...Array(2)].map((_, index) => (
+              {exteriorMenu.slice(0, 3).map((item, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 flex flex-col gap-2 items-stretch"
@@ -185,171 +237,65 @@ const AddOrderFeature = () => {
                     <Image
                       removeWrapper
                       className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
+                      src={item.image.src}
                       fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
+                      alt={item.name + 'image'}
                     />
                   </div>
                   <div className="flex flex-col mb-2">
                     <span className="text-[14px] font-bold uppercase text-ellipsis">
-                      Front Lobby
+                      {item.name}
                     </span>
                     <div className="flex justify-between">
                       <span className="text-xs font-medium text-[#434446] opacity-60">
-                        Large
+                        {item.sub}
                       </span>
                       <div className="flex items-center gap-[2px] text-xs font-bold">
                         <span>$</span>
-                        <span>100</span>
+                        <span>{item.price}</span>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1">
-                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
-                    <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
-                      <PlusSvg />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="flex flex-col">
-            <h1 className="text-base font-bold px-3 py-4">VIEW</h1>
+            <h1 className="text-base font-bold px-3 py-4">EXTERIOR MENU</h1>
             <div className="flex flex-wrap px-5 gap-3">
-              {[...Array(7)].map((_, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
-                >
-                  <div className="pt-1 w-full">
-                    <Image
-                      removeWrapper
-                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
-                      fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
-                    />
-                  </div>
-                  <div className="flex flex-col mb-2">
-                    <span className="text-[14px] font-bold uppercase text-ellipsis">
-                      Front Lobby
-                    </span>
-                    <div className="flex justify-between">
-                      <span className="text-xs font-medium text-[#434446] opacity-60">
-                        Large
+              {exteriorMenu.map((item, index) =>
+                index !== 1 && index !== 2 ? (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 flex flex-col gap-2 items-stretch"
+                  >
+                    <div className="pt-1 w-full">
+                      <Image
+                        removeWrapper
+                        className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
+                        src={item.image.src}
+                        fallbackSrc="https://via.placeholder.com/300x200"
+                        alt={item.name + 'image'}
+                      />
+                    </div>
+                    <div className="flex flex-col mb-2">
+                      <span className="text-[14px] font-bold uppercase text-ellipsis">
+                        {item.name}
                       </span>
-                      <div className="flex items-center gap-[2px] text-xs font-bold">
-                        <span>$</span>
-                        <span>100</span>
+                      <div className="flex justify-between">
+                        <span className="text-xs font-medium text-[#434446] opacity-60">
+                          {item.sub}
+                        </span>
+                        <div className="flex items-center gap-[2px] text-xs font-bold">
+                          <span>$</span>
+                          <span>{item.price}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1">
-                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
-                    <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
-                      <PlusSvg />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            <h1 className="text-base font-bold px-3 py-4">DRONE</h1>
-            <div className="flex flex-wrap px-5 gap-3">
-              {[...Array(0)].map((_, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
-                >
-                  <div className="pt-1 w-full">
-                    <Image
-                      removeWrapper
-                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
-                      fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
-                    />
-                  </div>
-                  <div className="flex flex-col mb-2">
-                    <span className="text-[14px] font-bold uppercase text-ellipsis">
-                      Front Lobby
-                    </span>
-                    <div className="flex justify-between">
-                      <span className="text-xs font-medium text-[#434446] opacity-60">
-                        Large
-                      </span>
-                      <div className="flex items-center gap-[2px] text-xs font-bold">
-                        <span>$</span>
-                        <span>100</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1">
-                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
-                    <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
-                      <PlusSvg />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            <h1 className="text-base font-bold px-3 py-4">ANIMATION</h1>
-            <div className="flex flex-wrap px-5 gap-3">
-              {[...Array(0)].map((_, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
-                >
-                  <div className="pt-1 w-full">
-                    <Image
-                      removeWrapper
-                      className="w-full h-[160px] max-w-[250px] object-cover p-2 shadow-small"
-                      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
-                      fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
-                    />
-                  </div>
-                  <div className="flex flex-col mb-2">
-                    <span className="text-[14px] font-bold uppercase text-ellipsis">
-                      Front Lobby
-                    </span>
-                    <div className="flex justify-between">
-                      <span className="text-xs font-medium text-[#434446] opacity-60">
-                        Large
-                      </span>
-                      <div className="flex items-center gap-[2px] text-xs font-bold">
-                        <span>$</span>
-                        <span>100</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <div className="flex-shrink-0 flex flex-col gap-2 items-stretch">
-                <div className="pt-1">
-                  <div className="h-[160px] w-[250px] flex flex-col p-2 rounded-large border-[#8A8A8A] border-dashed border-2">
-                    <div className="flex-grow bg-[#F2F2F2] flex flex-col justify-center items-center">
-                      <PlusSvg />
-                    </div>
-                  </div>
-                </div>
-              </div>
+                ) : null,
+              )}
             </div>
           </div>
         </div>
