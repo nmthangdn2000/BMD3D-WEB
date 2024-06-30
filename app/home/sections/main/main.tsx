@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 import CloseSvg from './assets/icons/close.svg';
 
 const images = Array.from(
-  { length: 6 },
+  { length: 5 },
   (_, i) =>
     require(`../../../add-order/setup-type/assets/images/${i + 1}.jpg`).default,
 );
@@ -97,7 +97,7 @@ export const Main = () => {
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 first:pl-1 pr-3 last:pr-1 "
+                  className="flex-shrink-0 basis-1/6 first:pl-1 pr-3 last:pr-1 "
                 >
                   <div
                     className="relative pt-1 w-full cursor-pointer"
@@ -105,12 +105,14 @@ export const Main = () => {
                       router.push('/view-order');
                     }}
                   >
-                    <Image
-                      className="w-full h-[164px] object-cover p-2 shadow-small"
-                      src={image.src}
-                      fallbackSrc="https://via.placeholder.com/300x200"
-                      alt="NextUI Image with fallback"
-                    />
+                    <div className="relative shadow-black/5 shadow-none rounded-large">
+                      <img
+                        src={image.src}
+                        className="relative z-10 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100 transition-transform-opacity motion-reduce:transition-none !duration-300 rounded-large w-full h-[164px] object-cover shadow-small"
+                        alt="NextUI Image with fallback"
+                        data-loaded="true"
+                      />
+                    </div>
 
                     <span className="absolute bottom-3 left-4 text-sm text-white font-bold z-10">
                       BDM {index + 1}

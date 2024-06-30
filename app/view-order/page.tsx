@@ -266,7 +266,7 @@ const ViewOrder = () => {
               {features.map((item, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 flex flex-col gap-2 items-stretch"
+                  className="flex-shrink-0  flex flex-col gap-2 items-stretch"
                 >
                   <div className="pl-1 pt-1 w-full">
                     <Image
